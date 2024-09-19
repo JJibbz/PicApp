@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PicApp.GalleryPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView x:Name="collectionView"
+                        ItemsSource="{Binding Photos}"
+                        SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5">
+                            <Image Source="{Binding Path}"
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="100"/>
+                            <Label Text="{Binding Name}"
+                               FontSize="Small"
+                               VerticalOptions="End"
+                               HorizontalOptions="Center"
+                               TextColor="Black"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Кнопки "Открыть" и "Удалить" -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Открыть" Clicked="OnOpenClicked" />
+                <Button Text="Удалить" Clicked="OnDeleteClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
